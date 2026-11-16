@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+/* =========================================
+   PERSONAL REFLECTION PAGE
+========================================= */
+
+/* HEADER LINK */
+.logout-link {
+    color: var(--soft-yellow) !important;
+}
+
+/* REFLECTION HERO */
+.reflection-hero {
+    min-height: 570px;
+    padding: 80px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.reflection-hero-content {
+    max-width: 580px;
+    flex: 1;
+}
+
+.reflection-hero-content h1 {
+    margin: 20px 0;
+    font-size: clamp(42px, 5vw, 65px);
+    line-height: 1.2;
+}
+
+.reflection-hero-content h1 span {
+    display: block;
+    color: var(--soft-yellow);
+}
+
+.reflection-hero-content > p:not(.welcome-label) {
+    max-width: 500px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.reflection-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    padding: 13px 23px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--soft-yellow), var(--gold));
+    color: var(--midnight);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.reflection-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(255, 201, 74, 0.25);
+}
+
+/* DECORATIVE HERO ART */
+.reflection-hero-art {
+    width: 330px;
+    height: 330px;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reflection-orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 231, 163, 0.35);
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 250px;
+    height: 250px;
+    transform: rotate(-25deg) scaleY(0.65);
+}
+
+.orbit-two {
+    width: 300px;
+    height: 300px;
+    transform: rotate(35deg) scaleY(0.65);
+}
+
+.reflection-star {
+    width: 125px;
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--midnight);
+    background: linear-gradient(135deg, #fff1c6, var(--gold));
+    font-size: 75px;
+    box-shadow:
+        0 0 30px rgba(255, 201, 74, 0.5),
+        0 0 90px rgba(255, 201, 74, 0.2);
+}
+
+.reflection-art-text {
+    position: absolute;
+    right: -10px;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    color: var(--soft-yellow);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    line-height: 2;
+}
+
+/* REFLECTION CONTENT */
+.reflection-content,
+.reflection-values {
+    padding: 80px 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.reflection-heading {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.reflection-heading h2 {
+    margin: 12px 0;
+    font-size: 32px;
+}
+
+.reflection-heading > p:last-child {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* GLASS REFLECTION PAPER */
+.reflection-paper {
+    max-width: 850px;
+    margin: auto;
+    padding: 50px 55px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.paper-decoration {
+    position: absolute;
+    top: -35px;
+    right: 20px;
+    color: rgba(255, 231, 163, 0.12);
+    font-size: 150px;
+}
+
+.reflection-paper h3 {
+    margin-bottom: 25px;
+    color: var(--soft-yellow);
+    font-size: 20px;
+}
+
+.reflection-paper > p {
+    margin-bottom: 18px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 13px;
+    line-height: 2.1;
+    text-align: justify;
+}
+
+/* BIBLE VERSE */
+.reflection-verse {
+    margin-top: 35px;
+    padding: 25px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.reflection-verse span {
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.reflection-verse p {
+    margin: 8px 0;
+    color: var(--soft-yellow);
+    font-size: 17px;
+    font-style: italic;
+}
+
+.reflection-verse small {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+/* PERSONAL VALUES */
+.reflection-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.reflection-value-card {
+    padding: 35px 25px;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: 0.3s;
+}
+
+.reflection-value-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.11);
+}
+
+.value-symbol {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--soft-yellow), var(--gold));
+    font-size: 25px;
+}
+
+.reflection-value-card h3 {
+    margin: 20px 0 10px;
+    color: var(--soft-yellow);
+    font-size: 18px;
+}
+
+.reflection-value-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* PROMISE SECTION */
+.promise-section {
+    margin: 40px 10%;
+    padding: 55px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 231, 163, 0.25);
+    border-radius: 25px;
+    background:
+        linear-gradient(120deg,
+        rgba(24, 74, 133, 0.65),
+        rgba(10, 31, 67, 0.75));
+    backdrop-filter: blur(20px);
+}
+
+.promise-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.promise-content h2 {
+    margin: 15px 0 20px;
+    font-size: 32px;
+}
+
+.promise-content > p:not(.section-label) {
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.promise-signature {
+    margin-top: 30px;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.promise-signature span {
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.promise-signature p {
+    color: var(--soft-yellow);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* NEXT PAGE */
+.next-page-section {
+    padding: 90px 10%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.next-page-section h2 {
+    margin: 15px 0;
+    font-size: 30px;
+}
+
+.next-page-section > p:not(.section-label) {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+}
+
+/* REFLECTION RESPONSIVENESS */
+@media (max-width: 850px) {
+    .reflection-hero {
+        padding: 65px 7%;
+        gap: 20px;
+    }
+
+    .reflection-hero-art {
+        width: 250px;
+        height: 250px;
+    }
+
+    .reflection-star {
+        width: 100px;
+        height: 100px;
+        font-size: 60px;
+    }
+
+    .orbit-one {
+        width: 200px;
+        height: 200px;
+    }
+
+    .orbit-two {
+        width: 240px;
+        height: 240px;
+    }
+
+    .reflection-values-grid {
+        gap: 12px;
+    }
+
+    .reflection-value-card {
+        padding: 25px 18px;
+    }
+}
+
+@media (max-width: 700px) {
+    .reflection-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .reflection-hero-content > p:not(.welcome-label) {
+        margin: auto;
+    }
+
+    .reflection-hero-art {
+        margin-top: 25px;
+    }
+
+    .reflection-content,
+    .reflection-values {
+        padding: 60px 7%;
+    }
+
+    .reflection-paper {
+        padding: 35px 25px;
+    }
+
+    .reflection-paper > p {
+        text-align: left;
+    }
+
+    .reflection-values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .promise-section {
+        margin: 30px 6%;
+        padding: 35px 25px;
+    }
+
+    .promise-content h2 {
+        font-size: 26px;
+    }
+
+    .next-page-section {
+        padding: 65px 7%;
+    }
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Advocacy | Light in the Web</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- BACKGROUND EFFECTS -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="background-glow glow-three"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Light in the <span class="logo-highlight">Web</span></span>
+        </a>
+
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="reflection.html">Reflection</a>
+            <a href="community.html">Community</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="education.html">Education</a>
+            <a href="faith-tech.html">Faith & Tech</a>
+            <a href="index.html" class="logout-link">Logout ↗</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <main>
+
+        <section class="reflection-hero">
+
+            <div class="reflection-hero-content">
+                <p class="welcome-label">MY PERSONAL REFLECTION</p>
+
+                <h1>
+                    My Journey
+                    <span>to Be Better.</span>
+                </h1>
+
+                <p>
+                    I am still learning how to become a better person.
+                    Through faith, good values, and the choices I make
+                    every day, I want to become someone who can bring
+                    positivity to others.
+                </p>
+
+                <a href="#reflection" class="reflection-button">
+                    Read My Reflection <span>↓</span>
+                </a>
+            </div>
+
+            <div class="reflection-hero-art">
+                <div class="reflection-orbit orbit-one"></div>
+                <div class="reflection-orbit orbit-two"></div>
+
+                <div class="reflection-star">
+                    ✦
+                </div>
+
+                <div class="reflection-art-text">
+                    <span>GROW</span>
+                    <span>WITH</span>
+                    <span>FAITH</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- PERSONAL REFLECTION -->
+        <section id="reflection" class="reflection-content">
+
+            <div class="reflection-heading">
+                <p class="section-label">WORDS FROM THE HEART</p>
+                <h2>My Personal Reflection</h2>
+                <p>
+                    Learning to become a better person through
+                    faith, honesty, and responsible actions.
+                </p>
+            </div>
+
+            <div class="reflection-paper">
+
+                <div class="paper-decoration">✦</div>
+
+                <h3>What I Have Learned About Myself</h3>
+
+                <p>
+                    As a student, I know that I still have many things
+                    to learn. There are days when I make mistakes or
+                    face problems, but these experiences help me
+                    understand myself better. My faith reminds me to
+                    keep trusting God, especially when things do not
+                    happen the way I expect.
+                </p>
+
+                <p>
+                    I have also learned that being a good person is
+                    not only about what I do in front of others. It
+                    also matters how I treat people when I am online.
+                    Sometimes, a simple comment or post can affect
+                    someone's feelings. That is why I want to be more
+                    careful with my words and think before sharing
+                    anything on the internet.
+                </p>
+
+                <p>
+                    I cannot say that I always make the right decisions,
+                    because I am still growing and learning. What
+                    matters to me is that I accept my mistakes and try
+                    to do better next time. I want my actions to show
+                    respect, honesty, and kindness, even in small ways.
+                </p>
+
+                <p>
+                    For me, being a light to others does not mean being
+                    perfect. It means choosing to do what is right,
+                    helping when I can, and keeping my faith in God.
+                    I hope that through my everyday actions, I can make
+                    a good difference in someone's life.
+                </p>
+
+                <div class="reflection-verse">
+                    <span>✧</span>
+                    <p>"Let your light shine before others."</p>
+                    <small>MATTHEW 5:16</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- VALUES SECTION -->
+        <section id="values" class="reflection-values">
+
+            <div class="reflection-heading">
+                <p class="section-label">WHAT I BELIEVE IN</p>
+                <h2>Values I Want to Live By</h2>
+                <p>
+                    These are the values I want to practice as I
+                    continue learning and growing as a student.
+                </p>
+            </div>
+
+            <div class="reflection-values-grid">
+
+                <article class="reflection-value-card">
+                    <div class="value-symbol">✦</div>
+                    <h3>Faith</h3>
+                    <p>
+                        I want to keep my trust in God and remember
+                        Him whenever I face challenges or need guidance.
+                    </p>
+                </article>
+
+                <article class="reflection-value-card">
+                    <div class="value-symbol">◇</div>
+                    <h3>Honesty</h3>
+                    <p>
+                        I believe in telling the truth, admitting my
+                        mistakes, and doing the right thing even when
+                        nobody is watching.
+                    </p>
+                </article>
+
+                <article class="reflection-value-card">
+                    <div class="value-symbol">☼</div>
+                    <h3>Responsibility</h3>
+                    <p>
+                        I want to use the internet properly, respect
+                        other people, and avoid sharing things that
+                        could hurt or mislead others.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- PROMISE SECTION -->
+        <section class="promise-section">
+
+            <div class="promise-content">
+                <p class="section-label">A PROMISE TO MYSELF</p>
+
+                <h2>How I Want to Use Technology</h2>
+
+                <p>
+                    I will do my best to become a responsible internet
+                    user. I will be careful about what I post, respect
+                    other people's opinions, and avoid using technology
+                    to spread hate or false information. I also want
+                    to use what I learn online for good purposes.
+                </p>
+
+                <p>
+                    I know I cannot control everything on the internet,
+                    but I can control my own actions. I want to use
+                    technology in a way that reflects my faith and
+                    the values I believe in.
+                </p>
+
+                <div class="promise-signature">
+                    <span>✦</span>
+                    <p>Choose kindness. Live with purpose. Be the light.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- NEXT PAGE -->
+        <section class="next-page-section">
+            <p class="section-label">KEEP THE LIGHT SHINING</p>
+            <h2>Small Actions Can Make a Difference.</h2>
+            <p>
+                Let's turn our values into meaningful actions
+                within our community.
+            </p>
+
+            <a href="community.html" class="reflection-button">
+                Explore Community Advocacy <span>→</span>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Light in the Web. All Rights Reserved.</p>
+        <p>Made with purpose, guided by faith. <span>✦</span></p>
+    </footer>
+
+</body>
+</html>

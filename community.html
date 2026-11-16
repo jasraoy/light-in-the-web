@@ -1,0 +1,852 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+/* =========================================
+   COMMUNITY SERVICE / ADVOCACY PAGE
+========================================= */
+
+/* COMMUNITY HERO */
+.community-hero {
+    min-height: 550px;
+    padding: 75px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.community-hero-content {
+    max-width: 600px;
+    flex: 1;
+}
+
+.community-hero-content h1 {
+    margin: 20px 0;
+    font-size: clamp(42px, 5vw, 65px);
+    line-height: 1.2;
+}
+
+.community-hero-content h1 span {
+    display: block;
+    color: var(--soft-yellow);
+}
+
+.community-hero-content > p:not(.welcome-label) {
+    max-width: 500px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.community-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    padding: 13px 23px;
+    border-radius: 30px;
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--soft-yellow), var(--gold));
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.community-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(255, 201, 74, 0.25);
+}
+
+/* COMMUNITY HERO ART */
+.community-hero-art {
+    width: 330px;
+    height: 330px;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.community-orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 231, 163, 0.4);
+    border-radius: 50%;
+}
+
+.community-orbit-one {
+    width: 260px;
+    height: 260px;
+    transform: rotate(30deg) scaleY(0.7);
+}
+
+.community-orbit-two {
+    width: 300px;
+    height: 300px;
+    transform: rotate(-35deg) scaleY(0.7);
+}
+
+.community-glow {
+    position: absolute;
+    color: rgba(255, 231, 163, 0.25);
+    font-size: 150px;
+    filter: blur(2px);
+}
+
+.community-main-icon {
+    width: 125px;
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--midnight);
+    background: linear-gradient(135deg, #fff1c6, var(--gold));
+    font-size: 75px;
+    box-shadow:
+        0 0 30px rgba(255, 201, 74, 0.4),
+        0 0 90px rgba(255, 201, 74, 0.15);
+    z-index: 1;
+}
+
+.community-star {
+    position: absolute;
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.community-star-one {
+    top: 35px;
+    right: 35px;
+}
+
+.community-star-two {
+    bottom: 45px;
+    left: 25px;
+}
+
+.community-star-three {
+    top: 90px;
+    left: 15px;
+    font-size: 17px;
+}
+
+/* SECTION INTRO */
+.advocacy-intro {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 80px 30px 60px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.advocacy-intro h2,
+.community-heading h2 {
+    margin: 15px 0;
+    font-size: 32px;
+}
+
+.advocacy-intro > p:not(.section-label) {
+    margin: 15px auto;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.advocacy-intro strong {
+    color: var(--soft-yellow);
+}
+
+/* ADVOCACY CARDS */
+.advocacy-section {
+    padding: 60px 10% 90px;
+    position: relative;
+    z-index: 1;
+}
+
+.community-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.community-heading > p:last-child {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+}
+
+.advocacy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.advocacy-card {
+    min-height: 330px;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: 0.3s;
+}
+
+.advocacy-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.11);
+}
+
+.advocacy-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--soft-yellow), var(--gold));
+    font-size: 28px;
+}
+
+.advocacy-number {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.advocacy-card h3 {
+    margin: 13px 0;
+    font-size: 18px;
+}
+
+.advocacy-card > p {
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.advocacy-card-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.advocacy-card-footer span:first-child {
+    color: var(--soft-yellow);
+    font-size: 10px;
+}
+
+.advocacy-card-footer span:last-child {
+    color: var(--gold);
+}
+
+/* PARTICIPATION SECTION */
+.participate-section {
+    padding: 80px 10%;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.participate-content h2 {
+    margin: 15px 0;
+    font-size: 32px;
+}
+
+.participate-description {
+    max-width: 550px;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.participate-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.participate-item {
+    padding: 13px 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.participate-item:hover {
+    border-color: rgba(255, 201, 74, 0.5);
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.participate-item span {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.participate-item p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+}
+
+/* QUOTE CARD */
+.participate-quote {
+    min-height: 330px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(255, 231, 163, 0.25);
+    border-radius: 22px;
+    background:
+        linear-gradient(145deg,
+        rgba(36, 91, 151, 0.45),
+        rgba(255, 255, 255, 0.06));
+    backdrop-filter: blur(20px);
+}
+
+.quote-decoration,
+.quote-bottom {
+    color: var(--gold);
+    font-size: 30px;
+}
+
+.participate-quote h3 {
+    margin: 20px 0;
+    color: var(--soft-yellow);
+    font-size: 22px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.participate-quote p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.quote-bottom {
+    margin-top: 20px;
+}
+
+/* CLOSING MESSAGE */
+.community-closing {
+    padding: 50px 10% 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.closing-glass {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 50px;
+    text-align: center;
+    border: 1px solid rgba(255, 231, 163, 0.25);
+    border-radius: 25px;
+    background:
+        linear-gradient(120deg,
+        rgba(24, 74, 133, 0.6),
+        rgba(10, 31, 67, 0.75));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.closing-glass h2 {
+    margin: 18px 0;
+    font-size: 35px;
+    line-height: 1.4;
+}
+
+.closing-glass h2 span {
+    display: block;
+    color: var(--soft-yellow);
+}
+
+.closing-glass > p:not(.section-label) {
+    max-width: 700px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.73);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.closing-symbol {
+    margin: 25px 0 10px;
+    color: var(--gold);
+    font-size: 35px;
+}
+
+.closing-glass .closing-message {
+    color: var(--soft-yellow) !important;
+    font-size: 11px !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* NEXT PAGE */
+.community-next {
+    padding: 70px 10% 90px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.community-next h2 {
+    margin: 15px 0;
+    font-size: 30px;
+}
+
+.community-next > p:not(.section-label) {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 13px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 950px) {
+    .community-hero {
+        padding: 65px 7%;
+        gap: 25px;
+    }
+
+    .community-hero-art {
+        width: 250px;
+        height: 250px;
+    }
+
+    .community-main-icon {
+        width: 100px;
+        height: 100px;
+        font-size: 60px;
+    }
+
+    .community-orbit-one {
+        width: 210px;
+        height: 210px;
+    }
+
+    .community-orbit-two {
+        width: 240px;
+        height: 240px;
+    }
+
+    .advocacy-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .participate-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .community-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 7%;
+    }
+
+    .community-hero-content > p:not(.welcome-label) {
+        margin: auto;
+    }
+
+    .community-hero-art {
+        margin-top: 20px;
+    }
+
+    .advocacy-intro {
+        padding: 60px 7%;
+    }
+
+    .advocacy-intro h2,
+    .community-heading h2,
+    .participate-content h2 {
+        font-size: 26px;
+    }
+
+    .advocacy-section {
+        padding: 50px 7%;
+    }
+
+    .advocacy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .advocacy-card {
+        min-height: auto;
+    }
+
+    .participate-section {
+        padding: 60px 7%;
+        gap: 35px;
+    }
+
+    .participate-quote {
+        min-height: 280px;
+    }
+
+    .community-closing {
+        padding: 30px 6% 60px;
+    }
+
+    .closing-glass {
+        padding: 40px 22px;
+    }
+
+    .closing-glass h2 {
+        font-size: 27px;
+    }
+
+    .community-next {
+        padding: 60px 7%;
+    }
+
+    .community-next h2 {
+        font-size: 25px;
+    }
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Advocacy | Light in the Web</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- BACKGROUND EFFECTS -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="background-glow glow-three"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Light in the <span class="logo-highlight">Web</span></span>
+        </a>
+
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="reflection.html">Reflection</a>
+            <a href="community.html">Community</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="education.html">Education</a>
+            <a href="faith-tech.html">Faith & Tech</a>
+            <a href="index.html" class="logout-link">Logout ↗</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="community-hero">
+
+            <div class="community-hero-content">
+                <p class="welcome-label">
+                    ✦ COMPASSION • SERVICE • UNITY ✦
+                </p>
+
+                <h1>
+                    Small Acts,
+                    <span>Brighter Tomorrows.</span>
+                </h1>
+
+                <p>
+                    A better community begins with people who care.
+                    Through kindness, service, and unity, we can
+                    create positive changes that inspire others.
+                </p>
+
+                <a href="#advocacy" class="community-button">
+                    Discover Our Advocacy <span>↓</span>
+                </a>
+            </div>
+
+            <!-- DECORATIVE ART -->
+            <div class="community-hero-art">
+                <div class="community-orbit community-orbit-one"></div>
+                <div class="community-orbit community-orbit-two"></div>
+
+                <div class="community-glow">✧</div>
+                <div class="community-main-icon">♡</div>
+
+                <span class="community-star community-star-one">✦</span>
+                <span class="community-star community-star-two">✧</span>
+                <span class="community-star community-star-three">✦</span>
+            </div>
+
+        </section>
+
+        <!-- ADVOCACY INTRODUCTION -->
+        <section class="advocacy-intro" id="advocacy">
+
+            <p class="section-label">OUR ADVOCACY</p>
+
+            <h2>Making a Difference Starts With Us.</h2>
+
+            <p>
+                Community service is more than simply helping others.
+                It is about showing compassion, sharing what we have,
+                and using our abilities to make life better for the
+                people around us.
+            </p>
+
+            <p>
+                Our advocacy, <strong>“Small Acts, Brighter Tomorrows,”</strong>
+                encourages everyone to take part in simple but
+                meaningful actions that promote a caring,
+                responsible, and united community.
+            </p>
+
+        </section>
+
+        <!-- THREE ADVOCACY AREAS -->
+        <section class="advocacy-section">
+
+            <div class="community-heading">
+                <p class="section-label">WAYS WE CAN HELP</p>
+                <h2>Three Ways to Make an Impact</h2>
+                <p>
+                    Every good action, no matter how small,
+                    can bring hope and positive change.
+                </p>
+            </div>
+
+            <div class="advocacy-grid">
+
+                <!-- CARD 1 -->
+                <article class="advocacy-card">
+
+                    <div class="advocacy-icon">♡</div>
+
+                    <span class="advocacy-number">
+                        01 / COMPASSION
+                    </span>
+
+                    <h3>Help Those in Need</h3>
+
+                    <p>
+                        Extend a helping hand to people who need
+                        support. We can donate useful items, share
+                        food, volunteer, or simply offer our time
+                        and attention to someone who needs it.
+                    </p>
+
+                    <div class="advocacy-card-footer">
+                        <span>Kindness makes a difference.</span>
+                        <span>✦</span>
+                    </div>
+
+                </article>
+
+                <!-- CARD 2 -->
+                <article class="advocacy-card">
+
+                    <div class="advocacy-icon">☘</div>
+
+                    <span class="advocacy-number">
+                        02 / RESPONSIBILITY
+                    </span>
+
+                    <h3>Care for Our Environment</h3>
+
+                    <p>
+                        Protecting nature is a responsibility we
+                        all share. Simple actions such as proper
+                        waste disposal, recycling, planting trees,
+                        and joining clean-up activities help
+                        create a cleaner environment.
+                    </p>
+
+                    <div class="advocacy-card-footer">
+                        <span>Protect the world we share.</span>
+                        <span>✦</span>
+                    </div>
+
+                </article>
+
+                <!-- CARD 3 -->
+                <article class="advocacy-card">
+
+                    <div class="advocacy-icon">☀</div>
+
+                    <span class="advocacy-number">
+                        03 / UNITY
+                    </span>
+
+                    <h3>Spread Positivity</h3>
+
+                    <p>
+                        A kind word or encouraging message can
+                        brighten someone's day. Let us promote
+                        respect, understanding, and positivity
+                        both in our communities and online.
+                    </p>
+
+                    <div class="advocacy-card-footer">
+                        <span>Be a light to someone.</span>
+                        <span>✦</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- HOW TO PARTICIPATE -->
+        <section class="participate-section">
+
+            <div class="participate-content">
+
+                <p class="section-label">BE PART OF THE CHANGE</p>
+
+                <h2>How Can You Make a Difference?</h2>
+
+                <p class="participate-description">
+                    You do not need to be rich, famous, or powerful
+                    to help others. You only need the willingness
+                    to care and take action.
+                </p>
+
+                <div class="participate-list">
+
+                    <div class="participate-item">
+                        <span>01</span>
+                        <p>Volunteer in community activities.</p>
+                    </div>
+
+                    <div class="participate-item">
+                        <span>02</span>
+                        <p>Donate clothes, food, or useful supplies.</p>
+                    </div>
+
+                    <div class="participate-item">
+                        <span>03</span>
+                        <p>Practice proper waste disposal and recycling.</p>
+                    </div>
+
+                    <div class="participate-item">
+                        <span>04</span>
+                        <p>Support and encourage people around you.</p>
+                    </div>
+
+                    <div class="participate-item">
+                        <span>05</span>
+                        <p>Use social media to promote positive causes.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- QUOTE CARD -->
+            <div class="participate-quote">
+
+                <span class="quote-decoration">✧</span>
+
+                <h3>
+                    “Alone we can do so little;
+                    together we can do so much.”
+                </h3>
+
+                <p>
+                    Every helping hand brings us closer
+                    to a better community.
+                </p>
+
+                <span class="quote-bottom">✦</span>
+
+            </div>
+
+        </section>
+
+        <!-- CLOSING MESSAGE -->
+        <section class="community-closing">
+
+            <div class="closing-glass">
+
+                <p class="section-label">BE THE LIGHT</p>
+
+                <h2>
+                    A Better Tomorrow
+                    <span>Begins With a Kind Heart.</span>
+                </h2>
+
+                <p>
+                    We may not be able to solve every problem,
+                    but we can always choose to do something good.
+                    Let us use our time, talents, and resources
+                    to serve others and make our communities
+                    brighter places to live.
+                </p>
+
+                <div class="closing-symbol">✦</div>
+
+                <p class="closing-message">
+                    Small actions. Meaningful changes. Brighter futures.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- NEXT PAGE -->
+        <section class="community-next">
+
+            <p class="section-label">KEEP GROWING AND SHARING</p>
+
+            <h2>Every Student Has a Light to Share.</h2>
+
+            <p>
+                Discover the skills, experiences, and goals
+                that make each of us unique.
+            </p>
+
+            <a href="portfolio.html" class="community-button">
+                Explore My Portfolio <span>→</span>
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Light in the Web. All Rights Reserved.</p>
+        <p>Made with purpose, guided by faith. <span>✦</span></p>
+    </footer>
+
+</body>
+</html>

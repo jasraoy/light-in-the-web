@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+/* =========================================
+   INSPIRATIONAL PORTFOLIO PAGE
+========================================= */
+
+/* PORTFOLIO HERO */
+.portfolio-hero {
+    min-height: 550px;
+    padding: 75px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-hero-content {
+    max-width: 600px;
+    flex: 1;
+}
+
+.portfolio-hero-content h1 {
+    margin: 20px 0;
+    font-size: clamp(42px, 5vw, 65px);
+    line-height: 1.2;
+}
+
+.portfolio-hero-content h1 span {
+    display: block;
+    color: var(--soft-yellow);
+}
+
+.portfolio-hero-content > p:not(.welcome-label) {
+    max-width: 500px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.portfolio-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    padding: 13px 23px;
+    border-radius: 30px;
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--soft-yellow), var(--gold));
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.portfolio-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(255, 201, 74, 0.25);
+}
+
+/* HERO DECORATION */
+.portfolio-hero-art {
+    width: 330px;
+    height: 330px;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 231, 163, 0.4);
+    border-radius: 50%;
+}
+
+.portfolio-orbit-one {
+    width: 260px;
+    height: 260px;
+    transform: rotate(30deg) scaleY(0.7);
+}
+
+.portfolio-orbit-two {
+    width: 300px;
+    height: 300px;
+    transform: rotate(-35deg) scaleY(0.7);
+}
+
+.portfolio-profile-glow {
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--midnight);
+    background: linear-gradient(135deg, #fff1c6, var(--gold));
+    font-size: 75px;
+    box-shadow:
+        0 0 30px rgba(255, 201, 74, 0.4),
+        0 0 90px rgba(255, 201, 74, 0.15);
+    z-index: 1;
+}
+
+.portfolio-art-caption {
+    position: absolute;
+    right: -5px;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    color: var(--soft-yellow);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 2;
+}
+
+.portfolio-floating-star {
+    position: absolute;
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.star-a {
+    top: 25px;
+    right: 35px;
+}
+
+.star-b {
+    bottom: 50px;
+    left: 20px;
+}
+
+.star-c {
+    top: 90px;
+    left: 5px;
+    font-size: 17px;
+}
+
+/* SECTION HEADINGS */
+.portfolio-heading {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.portfolio-heading h2 {
+    margin: 12px 0;
+    font-size: 32px;
+}
+
+.portfolio-heading > p:last-child {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* ABOUT ME */
+.about-me-section {
+    padding: 80px 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.about-me-card {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.about-me-symbol {
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--soft-yellow), var(--gold));
+    font-size: 40px;
+}
+
+.about-me-content {
+    flex: 1;
+}
+
+.card-number {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.about-me-content h3 {
+    margin: 12px 0 18px;
+    color: var(--soft-yellow);
+    font-size: 23px;
+}
+
+.about-me-content p {
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    line-height: 2;
+}
+
+/* SKILLS */
+.skills-section {
+    padding: 70px 10% 90px;
+    position: relative;
+    z-index: 1;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.skill-card {
+    min-height: 230px;
+    padding: 28px 22px;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.11);
+}
+
+.skill-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    color: var(--midnight);
+    background: linear-gradient(135deg, var(--soft-yellow), var(--gold));
+    font-size: 24px;
+}
+
+.skill-card h3 {
+    margin: 20px 0 10px;
+    color: var(--soft-yellow);
+    font-size: 16px;
+}
+
+.skill-card p {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* GOALS */
+.goals-section {
+    padding: 70px 10% 90px;
+    position: relative;
+    z-index: 1;
+}
+
+.goals-container {
+    max-width: 850px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.goal-card {
+    min-height: 150px;
+    padding: 25px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: 0.3s;
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 201, 74, 0.6);
+}
+
+.goal-number {
+    color: var(--gold);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.goal-card h3 {
+    margin-bottom: 8px;
+    color: var(--soft-yellow);
+    font-size: 16px;
+}
+
+.goal-card p {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* LEARNING EXPERIENCES */
+.achievements-section {
+    padding: 70px 10% 90px;
+    position: relative;
+    z-index: 1;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.achievement-card {
+    padding: 30px 25px;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: 0.3s;
+}
+
+.achievement-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.achievement-icon {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-size: 35px;
+}
+
+.achievement-card h3 {
+    margin-bottom: 12px;
+    color: var(--soft-yellow);
+    font-size: 17px;
+}
+
+.achievement-card p {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* PERSONAL VALUES */
+.portfolio-values {
+    margin: 30px 10% 70px;
+    padding: 55px 45px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 231, 163, 0.25);
+    border-radius: 25px;
+    background:
+        linear-gradient(120deg,
+        rgba(24, 74, 133, 0.6),
+        rgba(10, 31, 67, 0.75));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.portfolio-values-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.portfolio-values-content h2 {
+    margin: 15px 0;
+    font-size: 30px;
+}
+
+.portfolio-values-content > p:not(.section-label) {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.portfolio-values-grid {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.portfolio-value {
+    padding: 25px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-value > span {
+    color: var(--gold);
+    font-size: 30px;
+}
+
+.portfolio-value h3 {
+    margin: 12px 0 8px;
+    color: var(--soft-yellow);
+    font-size: 16px;
+}
+
+.portfolio-value p {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* CLOSING */
+.portfolio-closing {
+    padding: 30px 10% 70px;
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-closing-card {
+    max-width: 950px;
+    margin: auto;
+    padding: 60px 45px;
+    text-align: center;
+    border: 1px solid rgba(255, 231, 163, 0.25);
+    border-radius: 25px;
+    background:
+        linear-gradient(145deg,
+        rgba(36, 91, 151, 0.45),
+        rgba(255, 255, 255, 0.06));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.portfolio-closing-card h2 {
+    margin: 20px 0;
+    font-size: 35px;
+    line-height: 1.4;
+}
+
+.portfolio-closing-card h2 span {
+    display: block;
+    color: var(--soft-yellow);
+}
+
+.portfolio-closing-card > p:not(.section-label) {
+    max-width: 650px;
+    margin: auto;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.portfolio-closing-star {
+    display: block;
+    margin: 25px 0 10px;
+    color: var(--gold);
+    font-size: 35px;
+}
+
+.portfolio-closing-card h3 {
+    color: var(--soft-yellow);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* NEXT PAGE */
+.portfolio-next {
+    padding: 70px 10% 90px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-next h2 {
+    margin: 15px 0;
+    font-size: 30px;
+}
+
+.portfolio-next > p:not(.section-label) {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 13px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 950px) {
+    .portfolio-hero {
+        padding: 65px 7%;
+        gap: 25px;
+    }
+
+    .portfolio-hero-art {
+        width: 250px;
+        height: 250px;
+    }
+
+    .portfolio-profile-glow {
+        width: 105px;
+        height: 105px;
+    }
+
+    .portfolio-orbit-one {
+        width: 210px;
+        height: 210px;
+    }
+
+    .portfolio-orbit-two {
+        width: 240px;
+        height: 240px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .portfolio-hero {
+        flex-direction: column;
+        padding: 60px 7%;
+        text-align: center;
+    }
+
+    .portfolio-hero-content > p:not(.welcome-label) {
+        margin: auto;
+    }
+
+    .portfolio-hero-art {
+        margin-top: 20px;
+    }
+
+    .about-me-section,
+    .skills-section,
+    .goals-section,
+    .achievements-section {
+        padding: 55px 7%;
+    }
+
+    .portfolio-heading h2 {
+        font-size: 26px;
+    }
+
+    .about-me-card {
+        padding: 28px 22px;
+        flex-direction: column;
+    }
+
+    .about-me-content h3 {
+        font-size: 20px;
+    }
+
+    .skills-grid,
+    .goals-container,
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+        min-height: auto;
+    }
+
+    .portfolio-values {
+        margin: 20px 6% 50px;
+        padding: 40px 22px;
+    }
+
+    .portfolio-values-content h2 {
+        font-size: 25px;
+    }
+
+    .portfolio-values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-closing {
+        padding: 20px 6% 55px;
+    }
+
+    .portfolio-closing-card {
+        padding: 40px 22px;
+    }
+
+    .portfolio-closing-card h2 {
+        font-size: 27px;
+    }
+
+    .portfolio-next {
+        padding: 55px 7%;
+    }
+
+    .portfolio-next h2 {
+        font-size: 25px;
+    }
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Light in the Web</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- BACKGROUND EFFECTS -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="background-glow glow-three"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Light in the <span class="logo-highlight">Web</span></span>
+        </a>
+
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="reflection.html">Reflection</a>
+            <a href="community.html">Community</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="education.html">Education</a>
+            <a href="faith-tech.html">Faith & Tech</a>
+            <a href="index.html" class="logout-link">Logout ↗</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="portfolio-hero">
+
+            <div class="portfolio-hero-content">
+
+                <p class="welcome-label">
+                    ✦ A STUDENT'S JOURNEY ✦
+                </p>
+
+                <h1>
+                    My Story,
+                    <span>My Growth.</span>
+                </h1>
+
+                <p>
+                    Every skill begins with curiosity, and every
+                    achievement begins with a first step. This is
+                    a glimpse of who I am, what I am learning,
+                    and the person I hope to become.
+                </p>
+
+                <a href="#about-me" class="portfolio-button">
+                    Get to Know Me <span>↓</span>
+                </a>
+
+            </div>
+
+            <!-- DECORATIVE HERO ART -->
+            <div class="portfolio-hero-art">
+
+                <div class="portfolio-orbit portfolio-orbit-one"></div>
+                <div class="portfolio-orbit portfolio-orbit-two"></div>
+
+                <div class="portfolio-profile-glow">
+                    <span>✦</span>
+                </div>
+
+                <div class="portfolio-art-caption">
+                    <span>LEARN</span>
+                    <span>CREATE</span>
+                    <span>GROW</span>
+                </div>
+
+                <span class="portfolio-floating-star star-a">✧</span>
+                <span class="portfolio-floating-star star-b">✦</span>
+                <span class="portfolio-floating-star star-c">✧</span>
+
+            </div>
+
+        </section>
+
+        <!-- ABOUT ME -->
+        <section class="about-me-section" id="about-me">
+
+            <div class="portfolio-heading">
+                <p class="section-label">GET TO KNOW ME</p>
+                <h2>A Little About Myself</h2>
+                <p>
+                    The person behind the ideas, interests,
+                    and goals presented in this portfolio.
+                </p>
+            </div>
+
+            <div class="about-me-card">
+
+                <div class="about-me-symbol">
+                    ✧
+                </div>
+
+                <div class="about-me-content">
+
+                    <span class="card-number">
+                        MY PERSONAL INTRODUCTION
+                    </span>
+
+                    <h3>Hello, I'm JAZMIN E. GONOY!</h3>
+
+                    <p>
+                        I am a student who believes that every
+                        experience is an opportunity to learn,
+                        grow, and discover something new about
+                        myself. I enjoy exploring my interests,
+                        developing new skills, and challenging
+                        myself to become a better person.
+                    </p>
+
+                    <p>
+                        As someone learning about technology,
+                        I am interested in understanding how
+                        computers work, creating websites,
+                        and discovering how digital tools
+                        can make everyday tasks easier.
+                    </p>
+
+                    <p>
+                        I believe that success is not only
+                        measured by achievements but also
+                        by the values we practice, the people
+                        we help, and the positive impact we
+                        leave on others.
+                    </p>
+
+                    <p>
+                        My journey is still beginning, and I
+                        look forward to discovering more
+                        opportunities that will help me grow
+                        personally and academically.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SKILLS AND INTERESTS -->
+        <section class="skills-section">
+
+            <div class="portfolio-heading">
+                <p class="section-label">WHAT I CAN DO</p>
+                <h2>My Skills & Interests</h2>
+                <p>
+                    The things I enjoy learning and improving
+                    as I continue my journey.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+
+                <article class="skill-card">
+                    <span class="skill-icon">⌨</span>
+                    <h3>Technology</h3>
+                    <p>
+                        Learning programming, web development,
+                        and exploring how technology works.
+                    </p>
+                </article>
+
+                <article class="skill-card">
+                    <span class="skill-icon">✎</span>
+                    <h3>Creativity</h3>
+                    <p>
+                        Expressing ideas through designing,
+                        creating, and developing projects.
+                    </p>
+                </article>
+
+                <article class="skill-card">
+                    <span class="skill-icon">♡</span>
+                    <h3>Communication</h3>
+                    <p>
+                        Sharing ideas, listening to others,
+                        and building positive relationships.
+                    </p>
+                </article>
+
+                <article class="skill-card">
+                    <span class="skill-icon">✧</span>
+                    <h3>Problem Solving</h3>
+                    <p>
+                        Learning to think critically and find
+                        solutions to different challenges.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- GOALS -->
+        <section class="goals-section">
+
+            <div class="portfolio-heading">
+                <p class="section-label">LOOKING AHEAD</p>
+                <h2>My Goals & Aspirations</h2>
+                <p>
+                    Every small step brings me closer to
+                    the person I want to become.
+                </p>
+            </div>
+
+            <div class="goals-container">
+
+                <article class="goal-card">
+                    <span class="goal-number">01</span>
+                    <div>
+                        <h3>Personal Growth</h3>
+                        <p>
+                            To become more confident, disciplined,
+                            responsible, and open to learning
+                            from my experiences.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="goal-card">
+                    <span class="goal-number">02</span>
+                    <div>
+                        <h3>Academic Success</h3>
+                        <p>
+                            To continue improving my knowledge,
+                            develop my abilities, and work hard
+                            toward achieving my academic goals.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="goal-card">
+                    <span class="goal-number">03</span>
+                    <div>
+                        <h3>Future Career</h3>
+                        <p>
+                            To build a meaningful career where
+                            I can use my skills and knowledge
+                            to contribute something valuable.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="goal-card">
+                    <span class="goal-number">04</span>
+                    <div>
+                        <h3>Faith & Purpose</h3>
+                        <p>
+                            To strengthen my relationship with
+                            God and let my faith guide my
+                            decisions, actions, and future.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- LEARNING EXPERIENCES -->
+        <section class="achievements-section">
+
+            <div class="portfolio-heading">
+                <p class="section-label">MILESTONES & EXPERIENCES</p>
+                <h2>My Journey So Far</h2>
+                <p>
+                    Every learning experience is a step forward,
+                    even when it comes with challenges.
+                </p>
+            </div>
+
+            <div class="achievements-grid">
+
+                <article class="achievement-card">
+                    <span class="achievement-icon">⌨</span>
+                    <h3>Learning to Code</h3>
+                    <p>
+                        Practicing programming fundamentals
+                        and learning how to create simple
+                        programs using C++.
+                    </p>
+                </article>
+
+                <article class="achievement-card">
+                    <span class="achievement-icon">✧</span>
+                    <h3>Creative Projects</h3>
+                    <p>
+                        Exploring creativity through
+                        presentations, digital designs,
+                        and website development.
+                    </p>
+                </article>
+
+                <article class="achievement-card">
+                    <span class="achievement-icon">☼</span>
+                    <h3>Personal Experiences</h3>
+                    <p>
+                        Developing independence, learning
+                        from challenges, and discovering
+                        new interests along the way.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- PERSONAL VALUES -->
+        <section class="portfolio-values">
+
+            <div class="portfolio-values-content">
+
+                <p class="section-label">WHAT GUIDES ME</p>
+
+                <h2>Values That Define My Journey</h2>
+
+                <p>
+                    Beyond my skills and achievements, I believe
+                    that my values shape the person I am becoming.
+                </p>
+
+                <div class="portfolio-values-grid">
+
+                    <div class="portfolio-value">
+                        <span>✦</span>
+                        <h3>Faith</h3>
+                        <p>
+                            Keeping God at the center of my life.
+                        </p>
+                    </div>
+
+                    <div class="portfolio-value">
+                        <span>♡</span>
+                        <h3>Integrity</h3>
+                        <p>
+                            Being honest and responsible in my actions.
+                        </p>
+                    </div>
+
+                    <div class="portfolio-value">
+                        <span>☼</span>
+                        <h3>Compassion</h3>
+                        <p>
+                            Treating others with kindness and respect.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CLOSING -->
+        <section class="portfolio-closing">
+
+            <div class="portfolio-closing-card">
+
+                <p class="section-label">MY PERSONAL REMINDER</p>
+
+                <h2>
+                    I Am Still Growing,
+                    <span>and That Is Beautiful.</span>
+                </h2>
+
+                <p>
+                    I may not have everything figured out yet,
+                    but I believe that every step, mistake,
+                    and experience has a purpose. With faith,
+                    determination, and a willing heart,
+                    I will continue moving forward.
+                </p>
+
+                <span class="portfolio-closing-star">✦</span>
+
+                <h3>My story is still being written.</h3>
+
+            </div>
+
+        </section>
+
+        <!-- NEXT PAGE -->
+        <section class="portfolio-next">
+
+            <p class="section-label">LEARN AND GROW RESPONSIBLY</p>
+
+            <h2>Knowledge Is a Light Worth Sharing.</h2>
+
+            <p>
+                Discover how we can use technology wisely
+                and become responsible digital citizens.
+            </p>
+
+            <a href="education.html" class="portfolio-button">
+                Explore Digital Ethics <span>→</span>
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Light in the Web. All Rights Reserved.</p>
+        <p>Made with purpose, guided by faith. <span>✦</span></p>
+    </footer>
+
+</body>
+</html>

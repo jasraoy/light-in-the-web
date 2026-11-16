@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light in the Web | Login</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- BACKGROUND EFFECTS -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="background-glow glow-three"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>Light in the <span class="logo-highlight">Web</span></span>
+        </a>
+
+        <nav class="navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#values">Our Values</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="home" class="main-container">
+
+        <!-- LEFT SIDE: INTRODUCTION -->
+        <section class="welcome-section">
+            <p class="welcome-label">WELCOME TO OUR DIGITAL SPACE</p>
+
+            <h1>
+                Be a Light.
+                <span>Make a Difference.</span>
+            </h1>
+
+            <p class="welcome-description">
+                A place where faith, knowledge, and creativity come together.
+                Discover how small actions and meaningful choices can bring
+                light to the world around us.
+            </p>
+
+            <div class="welcome-quote">
+                <span class="quote-icon">✧</span>
+                <p>
+                    "Let your light shine before others."
+                </p>
+                <small>Matthew 5:16</small>
+            </div>
+        </section>
+
+        <!-- RIGHT SIDE: LOGIN CARD -->
+        <section class="login-section">
+
+            <div class="login-card">
+
+                <div class="login-icon">✦</div>
+
+                <p class="card-label">YOUR JOURNEY STARTS HERE</p>
+
+                <h2>Welcome Back!</h2>
+
+                <p class="login-subtitle">
+                    Log in to explore and let your light shine.
+                </p>
+
+                <form id="loginForm">
+
+                    <div class="input-group">
+                        <label for="username">Username</label>
+
+                        <div class="input-wrapper">
+                            <span class="input-icon">♙</span>
+                            <input
+                                type="text"
+                                id="username"
+                                placeholder="Enter your username"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+
+                        <div class="input-wrapper">
+                            <span class="input-icon">♧</span>
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                class="toggle-password"
+                                aria-label="Show password"
+                            >
+                                Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <p id="errorMessage" class="error-message"></p>
+
+                    <button type="submit" class="login-button">
+                        <span>Enter the Light</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+
+                </form>
+
+                <div class="login-divider">
+                    <span></span>
+                    <p>LIGHT • FAITH • PURPOSE</p>
+                    <span></span>
+                </div>
+
+                <p class="login-footer-text">
+                    A meaningful journey begins with one step.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="info-section">
+        <p class="section-label">ABOUT OUR PROJECT</p>
+        <h2>A Website with a Purpose</h2>
+        <p>
+            Light in the Web is a value-centered website that encourages
+            students to practice faith, kindness, responsibility, and
+            positive digital citizenship in everyday life.
+        </p>
+    </section>
+
+    <!-- VALUES SECTION -->
+    <section id="values" class="values-section">
+        <p class="section-label">WHAT WE STAND FOR</p>
+        <h2>Our Core Values</h2>
+
+        <div class="values-container">
+            <div class="value-item">
+                <span>✦</span>
+                <h3>Una ang Ginoo</h3>
+                <p>Putting God first in our decisions, actions, and daily lives.</p>
+            </div>
+
+            <div class="value-item">
+                <span>☼</span>
+                <h3>Light of the World</h3>
+                <p>Being a source of hope, kindness, and positivity to others.</p>
+            </div>
+
+            <div class="value-item">
+                <span>◇</span>
+                <h3>Digital Responsibility</h3>
+                <p>Using technology wisely, respectfully, and meaningfully.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Light in the Web. All Rights Reserved.</p>
+        <p>Made with purpose, guided by faith. <span>✦</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
